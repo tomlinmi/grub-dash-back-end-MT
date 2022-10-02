@@ -1,4 +1,4 @@
-const router = require("express").Router();
+const router = require("express").Router({ mergeParams: true });
 const controller = require("./dishes.controller");
 
 const methodNotAllowed = require("../errors/methodNotAllowed");
@@ -7,11 +7,6 @@ const methodNotAllowed = require("../errors/methodNotAllowed");
 /*In the src/dishes/dishes.router.js file, 
 add two routes: /dishes, and /dishes/:dishId and attach the handlers 
 (create, read, update, and list) exported from src/dishes/dishes.controller.js.*/
-
-router.route("/:dishId").get(controller.read).all(methodNotAllowed);
-
-router.route("/").get(controller.list).all(methodNotAllowed);
-
 
 router
   .route("/:dishId")
